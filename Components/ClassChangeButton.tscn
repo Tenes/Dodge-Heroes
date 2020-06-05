@@ -9,6 +9,7 @@ margin_left = 232.0
 margin_top = 584.0
 margin_right = 280.0
 margin_bottom = 632.0
+action_mode = 0
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 3 )
 __meta__ = {

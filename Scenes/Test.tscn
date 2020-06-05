@@ -1,64 +1,91 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/UI/not-pressed.png" type="Texture" id=1]
-[ext_resource path="res://Assets/UI/pressed.png" type="Texture" id=2]
-[ext_resource path="res://Code/UI/TouchScreenButton.cs" type="Script" id=3]
+[ext_resource path="res://Components/Analog.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sprites/Terrain.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Warrior.png" type="Texture" id=3]
 [ext_resource path="res://Components/ClassChangeButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/UI/UIpackSheet_transparent.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Player.cs" type="Script" id=5]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 173, 228 )
 
-[node name="ArcherButton" parent="." instance=ExtResource( 4 )]
+[sub_resource type="CapsuleShape2D" id=2]
+height = 9.99991
+
+[node name="Combat" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="AnalogArea" type="Control" parent="UI"]
+margin_top = 272.0
+margin_right = 232.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Analog" parent="UI/AnalogArea" instance=ExtResource( 1 )]
+position = Vector2( 96, 376 )
+
+[node name="ArcherButton" parent="UI" instance=ExtResource( 4 )]
 margin_left = 256.0
 margin_top = 608.0
 margin_right = 320.0
 margin_bottom = 672.0
 expand = true
 
-[node name="Sprite" parent="ArcherButton" index="0"]
+[node name="Sprite" parent="UI/ArcherButton" index="0"]
 position = Vector2( 32, 32 )
-scale = Vector2( 2.72917, 2.6625 )
-
-[node name="WarriorButton" parent="." instance=ExtResource( 4 )]
-margin_left = 176.0
-margin_top = 608.0
-margin_right = 240.0
-margin_bottom = 672.0
-expand = true
-
-[node name="Sprite" parent="WarriorButton" index="0"]
-position = Vector2( 32, 32 )
-scale = Vector2( 2.72916, 2.6625 )
+scale = Vector2( 3.2625, 3.19583 )
 region_rect = Rect2( 162, 450, 15, 15 )
 
-[node name="MageButton" parent="." instance=ExtResource( 4 )]
+[node name="WarriorButton" parent="UI" instance=ExtResource( 4 )]
+margin_left = 296.0
+margin_top = 680.0
+margin_right = 360.0
+margin_bottom = 744.0
+expand = true
+
+[node name="Sprite" parent="UI/WarriorButton" index="0"]
+position = Vector2( 31.5313, 32.0312 )
+scale = Vector2( 3.2625, 3.19583 )
+
+[node name="MageButton" parent="UI" instance=ExtResource( 4 )]
 margin_left = 336.0
 margin_top = 608.0
 margin_right = 400.0
 margin_bottom = 672.0
 expand = true
 
-[node name="Sprite" parent="MageButton" index="0"]
-position = Vector2( 32, 32 )
-scale = Vector2( 2.72916, 2.6625 )
+[node name="Sprite" parent="UI/MageButton" index="0"]
+position = Vector2( 31.5313, 32.0312 )
+scale = Vector2( 3.2625, 3.19583 )
 region_rect = Rect2( 198, 450, 15, 15 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 80, 672 )
-scale = Vector2( 8.78571, 8.21428 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 73, 397, 14, 14 )
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Sprite"]
-position = Vector2( -3, -3 )
-scale = Vector2( 0.192, 0.192 )
-normal = ExtResource( 1 )
-pressed = ExtResource( 2 )
-script = ExtResource( 3 )
+[node name="Background" type="Sprite" parent="RigidBody2D"]
+position = Vector2( 216, 352 )
+texture = ExtResource( 2 )
 
-[editable path="ArcherButton"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 218, 329 )
+shape = SubResource( 1 )
 
-[editable path="WarriorButton"]
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 200, 400 )
+script = ExtResource( 5 )
 
-[editable path="MageButton"]
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -7.00006, 29 )
+rotation = -1.5708
+shape = SubResource( 2 )
+
+[editable path="UI/ArcherButton"]
+
+[editable path="UI/WarriorButton"]
+
+[editable path="UI/MageButton"]

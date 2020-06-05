@@ -19,6 +19,10 @@ config/name="MmoAoE"
 run/main_scene="res://Scenes/Test.tscn"
 config/icon="res://Assets/Icons/icon.png"
 
+[debug]
+
+shapes/collision/shape_color=Color( 0.639216, 0.705882, 0.717647, 0.501961 )
+
 [display]
 
 window/size/width=432
@@ -56,4 +60,6 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"
