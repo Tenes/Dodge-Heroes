@@ -5,10 +5,10 @@ using System.Linq;
 
 public class Player : KinematicBody2D
 {
-    [Export] public Dictionary<int, BaseClass> AvailableClasses;
-    private List<BaseClass> EquipedClasses;
+    private List<BaseClass> _equipedClasses;
     private BaseClass _currentClass;
-    private Classes classFlag;
+    private Classes _classFlag;
+    private Sprite _sprite;
     private byte _firstClassCooldown;
     private byte _secondClassCooldown;
     private byte _thirdClassCooldown;
@@ -19,27 +19,17 @@ public class Player : KinematicBody2D
     //Properties
     public void SetClass(Classes newClass)
     {
-        this.classFlag = newClass;
-        this._currentClass = this.AvailableClasses[(int)classFlag];
+        this._classFlag = newClass;
+        this._currentClass = Armory.AvailableClasses[this._classFlag];
         this.UpdateTexture();
     }
     
     //Functions
     private void UpdateTexture()
     {
-        switch(this.classFlag)
-        {
-            case Classes.Warrior:
-                GetNode<Sprite>("Sprite").Texture = (Texture)GD.Load("res://Assets/Sprites/Warrior.png");
-                break;
-            case Classes.Archer:
-                GetNode<Sprite>("Sprite").Texture = (Texture)GD.Load("res://Assets/Sprites/Archer.png");
-                break;
-            case Classes.Mage:
-                GetNode<Sprite>("Sprite").Texture = (Texture)GD.Load("res://Assets/Sprites/Mage.png");
-                break;
-        }
+        this._sprite.Texture = Armory.ClassesTexture[this._classFlag];
     }
+
     public void AnalogForceChange(Vector2 force, Node2D analog)
     {
         if (force.Length() < 0.1)
@@ -51,7 +41,15 @@ public class Player : KinematicBody2D
     //Godot Functions
     public override void _Ready()
     {
-        this._currentClass = this.EquipedClasses.First();
+        this._sprite = GetNode<Sprite>("Sprite");
+        this._equipedClasses = new List<BaseClass>
+        {
+            Armory.AvailableClasses[Classes.Warrior],
+            Armory.AvailableClasses[Classes.Archer],
+            Armory.AvailableClasses[Classes.Mage]
+        };
+        this._currentClass = this._equipedClasses.First();
+        this._classFlag = this._currentClass.GetClassFlag();
     }
     public override void _PhysicsProcess(float delta)
     {

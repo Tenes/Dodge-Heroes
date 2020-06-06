@@ -3,6 +3,7 @@ public enum Classes {Warrior, Archer, Mage};
 public abstract class BaseClass
 {
     //Stats
+    protected Classes _classFlag;
     protected float _baseDamage = 1;
     protected float _damageModifier = 1f;
     protected float _baseMovespeed = 200;
@@ -15,6 +16,7 @@ public abstract class BaseClass
     protected float _critDamageModifier = 1f;
     protected float _baseCritChance = 0.1f;
     protected float _critChanceModifier = 1f;
+    public Classes GetClassFlag() => this._classFlag;
     public float GetDamage() => this._baseDamage * this._damageModifier;
     public string GetDamagePercentage() => (this._damageModifier * 100).ToString();
     public float GetMovespeed() => this._baseMovespeed * this._movespeedModifier;
