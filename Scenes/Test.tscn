@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Components/Analog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Terrain.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Warrior.png" type="Texture" id=3]
 [ext_resource path="res://Components/ClassChangeButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Player.cs" type="Script" id=5]
+[ext_resource path="res://Code/Entities/Player.cs" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 173, 228 )
+extents = Vector2( 18, 283 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 180, 43 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 height = 9.99991
@@ -28,9 +31,10 @@ __meta__ = {
 position = Vector2( 96, 376 )
 
 [node name="ArcherButton" parent="UI" instance=ExtResource( 4 )]
+anchor_right = 0.57
 margin_left = 256.0
 margin_top = 608.0
-margin_right = 320.0
+margin_right = 73.76
 margin_bottom = 672.0
 expand = true
 
@@ -68,13 +72,28 @@ region_rect = Rect2( 198, 450, 15, 15 )
 position = Vector2( 216, 352 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 218, 329 )
+[node name="LeftVoid" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 19, 366 )
 shape = SubResource( 1 )
+
+[node name="RightVoid" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 415, 369 )
+shape = SubResource( 1 )
+
+[node name="TopVoid" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 217, 52 )
+shape = SubResource( 3 )
+
+[node name="BottomVoid" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 217, 606 )
+shape = SubResource( 3 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 200, 400 )
 script = ExtResource( 5 )
+AvailableClasses = {
+
+}
 
 [node name="Sprite" type="Sprite" parent="Player"]
 texture = ExtResource( 3 )
