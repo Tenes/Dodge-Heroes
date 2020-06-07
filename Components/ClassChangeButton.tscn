@@ -18,9 +18,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Icon" type="Sprite" parent="."]
 position = Vector2( 24, 24 )
-scale = Vector2( 2.25833, 2.125 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 180, 450, 15, 15 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
