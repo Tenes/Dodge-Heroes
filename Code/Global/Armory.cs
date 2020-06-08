@@ -21,4 +21,8 @@ public static class Armory
         {Classes.Archer, new Rect2(new Vector2(162, 450), new Vector2(15, 15))},
         {Classes.Mage, new Rect2(new Vector2(198, 450), new Vector2(15, 15))}
     };
+    public static Dictionary<string, PackedScene> AoEsByName = new Dictionary<string, PackedScene>
+    {
+        {"AoEH", GD.Load("res://Components/AoEH.tscn") as PackedScene}
+    };
 }

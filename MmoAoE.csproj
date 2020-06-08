@@ -58,6 +58,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\AoEs\AoEH.cs" />
+    <Compile Include="Code\Entities\Boss.cs" />
     <Compile Include="Code\Global\Armory.cs" />
     <Compile Include="Code\Entities\BaseClass.cs" />
     <Compile Include="Code\Entities\Player.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Code\UI\ActualClassSprite.cs" />
     <Compile Include="Code\UI\Analog.cs" />
     <Compile Include="Code\UI\ChangeClassButton.cs" />
+    <Compile Include="Code\UI\TimerLabel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
