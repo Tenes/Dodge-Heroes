@@ -6,6 +6,8 @@ using System.Linq;
 public class Player : KinematicBody2D
 {
     private List<BaseClass> _equipedClasses;
+    protected byte _maxHealthPoint = 3;
+    protected byte _currentHealthPoint = 3;
     private BaseClass _currentClass;
     private Classes _classFlag;
     private Classes _previousClassFlag;
@@ -23,6 +25,14 @@ public class Player : KinematicBody2D
     private Vector2 _analogVelocity = new Vector2(0, 0);
 
     //Properties
+    public void TakeDamage()
+    {
+        _currentHealthPoint -= 1;
+        //SHADER STUFF HERE
+        Global.PlayerHealthUI.UpdateUI(_currentHealthPoint);
+        if (_currentHealthPoint == 0)
+            QueueFree();
+    }
     public Classes GetClassFlag() => _classFlag;
     public void SetClass(Classes newClass)
     {
@@ -68,6 +78,8 @@ public class Player : KinematicBody2D
         _actualClassSprite.SetIconForClass(_classFlag);
         _firstClassChangeButton.SetClassHeld(_equipedClasses[1].GetClassFlag());
         _secondClassChangeButton.SetClassHeld(_equipedClasses[2].GetClassFlag());
+        Global.Player = this;
+        Global.PlayerHealthUI.UpdateUI(_currentHealthPoint);
     }
     public override void _PhysicsProcess(float delta)
     {
@@ -89,5 +101,10 @@ public class Player : KinematicBody2D
             _numberOfTint -= 1;
         }
         _timerElpased += delta;
+    }
+    public override void _Input(InputEvent @event)
+    {
+        if(@event is InputEventKey inputKey && inputKey.Scancode == (int)KeyList.Space)
+            Global.Boss.TakeDamage(_currentClass.GetDamage());
     }
 }

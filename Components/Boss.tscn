@@ -4,7 +4,11 @@
 [ext_resource path="res://Code/Entities/Boss.cs" type="Script" id=2]
 
 [node name="Boss" type="Sprite"]
-position = Vector2( 227, 64 )
 scale = Vector2( 0.660163, 0.467565 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_OnTimerTimeout"]

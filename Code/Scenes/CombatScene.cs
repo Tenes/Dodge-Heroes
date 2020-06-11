@@ -15,7 +15,6 @@ public class CombatScene : Node2D
         _timerForGarbageCollection += delta;
         if(_timerForGarbageCollection >= _timeToHit)
         {
-            GD.Print(GC.MaxGeneration);
             GC.Collect(0);
             GC.WaitForPendingFinalizers();
             _timerForGarbageCollection= 0;

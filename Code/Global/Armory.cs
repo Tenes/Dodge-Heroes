@@ -21,8 +21,16 @@ public static class Armory
         {Classes.Archer, new Rect2(new Vector2(162, 450), new Vector2(15, 15))},
         {Classes.Mage, new Rect2(new Vector2(198, 450), new Vector2(15, 15))}
     };
+    public static Dictionary<string, Texture> UITextures = new Dictionary<string, Texture>
+    {
+        {"HeartFull", (Texture)GD.Load("res://Assets/UI/HeartFull.png")},
+        {"HeartEmpty", (Texture)GD.Load("res://Assets/UI/HeartEmpty.png")}
+    };
     public static Dictionary<string, PackedScene> AoEsByName = new Dictionary<string, PackedScene>
     {
-        {"AoEH", GD.Load("res://Components/AoEH.tscn") as PackedScene}
+        {"AoEH", GD.Load("res://Components/AoEs/AoEH.tscn") as PackedScene},
+        {"AoEBarcode", GD.Load("res://Components/AoEs/AoEBarcode.tscn") as PackedScene},
+        {"AoE3Circles", GD.Load("res://Components/AoEs/AoE3Circles.tscn") as PackedScene},
+        {"AoE3CirclesVariant", GD.Load("res://Components/AoEs/AoE3CirclesVariant.tscn") as PackedScene}
     };
 }

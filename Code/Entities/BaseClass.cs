@@ -1,3 +1,5 @@
+using Godot;
+
 public enum Classes {Warrior, Archer, Mage};
 
 public abstract class BaseClass
@@ -16,17 +18,18 @@ public abstract class BaseClass
     protected float _critDamageModifier = 1f;
     protected float _baseCritChance = 0.1f;
     protected float _critChanceModifier = 1f;
-    public Classes GetClassFlag() => this._classFlag;
-    public float GetDamage() => this._baseDamage * this._damageModifier;
-    public string GetDamagePercentage() => (this._damageModifier * 100).ToString();
-    public float GetMovespeed() => this._baseMovespeed * this._movespeedModifier;
-    public string GetMovespeedPercentage() => (this._movespeedModifier * 100).ToString();
-    public float GetAttackspeed() => this._baseAttackspeed * (1/this._attackspeedModifier);
-    public string GetAttackspeedPercentage() => (this._attackspeedModifier * 100).ToString();
-    public float GetChanceToDropItemAndMaterials() => this._baseChanceToDropItemAndMaterials * this._chanceToDropItemAndMaterialsModifier;
-    public string GetChanceToDropItemAndMaterialsPercentage() => (this._chanceToDropItemAndMaterialsModifier * 100).ToString();
-    public float GetCritDamage() => this._baseCritDamage * this._critDamageModifier;
-    public string GetCritDamagePercentage() => (this._critDamageModifier * 100).ToString();
-    public float GetCritChance() => this._baseCritChance * this._critChanceModifier;
-    public string GetCritChancePercentage() => (this._critChanceModifier * 100).ToString();
+    public Classes GetClassFlag() => _classFlag;
+
+    public int GetDamage() => Mathf.RoundToInt(_baseDamage * _damageModifier);
+    public string GetDamagePercentage() => (_damageModifier * 100).ToString();
+    public float GetMovespeed() => _baseMovespeed * _movespeedModifier;
+    public string GetMovespeedPercentage() => (_movespeedModifier * 100).ToString();
+    public float GetAttackspeed() => _baseAttackspeed * (1/_attackspeedModifier);
+    public string GetAttackspeedPercentage() => (_attackspeedModifier * 100).ToString();
+    public float GetChanceToDropItemAndMaterials() => _baseChanceToDropItemAndMaterials * _chanceToDropItemAndMaterialsModifier;
+    public string GetChanceToDropItemAndMaterialsPercentage() => (_chanceToDropItemAndMaterialsModifier * 100).ToString();
+    public float GetCritDamage() => _baseCritDamage * _critDamageModifier;
+    public string GetCritDamagePercentage() => (_critDamageModifier * 100).ToString();
+    public float GetCritChance() => _baseCritChance * _critChanceModifier;
+    public string GetCritChancePercentage() => (_critChanceModifier * 100).ToString();
 }

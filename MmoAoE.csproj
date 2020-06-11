@@ -58,7 +58,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\AoEs\AoEH.cs" />
+    <Compile Include="Code\AoEs\AoECircles.cs" />
+    <Compile Include="Code\AoEs\AoERectangles.cs" />
     <Compile Include="Code\Entities\Boss.cs" />
     <Compile Include="Code\Global\Armory.cs" />
     <Compile Include="Code\Entities\BaseClass.cs" />
@@ -66,10 +67,13 @@
     <Compile Include="Code\Entities\WarriorClass.cs" />
     <Compile Include="Code\Entities\ArcherClass.cs" />
     <Compile Include="Code\Entities\MageClass.cs" />
+    <Compile Include="Code\Global\Global.cs" />
     <Compile Include="Code\Scenes\CombatScene.cs" />
     <Compile Include="Code\UI\ActualClassSprite.cs" />
     <Compile Include="Code\UI\Analog.cs" />
     <Compile Include="Code\UI\ChangeClassButton.cs" />
+    <Compile Include="Code\UI\Lifebar.cs" />
+    <Compile Include="Code\UI\PlayerHealth.cs" />
     <Compile Include="Code\UI\TimerLabel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
