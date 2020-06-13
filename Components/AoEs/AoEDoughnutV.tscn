@@ -4,10 +4,10 @@
 [ext_resource path="res://Code/AoEs/AoEDoughnuts.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/DoughnutShape.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 71.0
-
 [sub_resource type="CircleShape2D" id=1]
+radius = 59.0
+
+[sub_resource type="CircleShape2D" id=2]
 radius = 89.0
 
 [node name="AoE" type="Area2D"]
@@ -16,20 +16,24 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Inner" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="Hitbox1" type="CollisionShape2D" parent="Inner"]
 position = Vector2( 0, -122 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Hitbox2" type="CollisionShape2D" parent="Inner"]
 position = Vector2( 0, 88 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Outer" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="Hitbox1" type="CollisionShape2D" parent="Outer"]
 position = Vector2( 0, -122 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Visual" type="Sprite" parent="Outer/Hitbox1"]
 material = ExtResource( 1 )
@@ -37,7 +41,7 @@ texture = ExtResource( 3 )
 
 [node name="Hitbox2" type="CollisionShape2D" parent="Outer"]
 position = Vector2( 0, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Visual" type="Sprite" parent="Outer/Hitbox2"]
 material = ExtResource( 1 )

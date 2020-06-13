@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Sprites/DoughnutShape.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 71.0
+radius = 59.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 89.0
@@ -16,6 +16,8 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Inner" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="Hitbox1" type="CollisionShape2D" parent="Inner"]
 position = Vector2( -90, -15 )
@@ -32,6 +34,7 @@ position = Vector2( -90, -15 )
 shape = SubResource( 2 )
 
 [node name="Visual" type="Sprite" parent="Outer/Hitbox1"]
+visible = false
 material = ExtResource( 1 )
 texture = ExtResource( 3 )
 
