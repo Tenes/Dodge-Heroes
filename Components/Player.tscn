@@ -1,17 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Shaders/Player.shader" type="Shader" id=1]
+[ext_resource path="res://Shaders/Blink.shader" type="Shader" id=1]
 [ext_resource path="res://Code/Entities/Player.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/Warrior.png" type="Texture" id=3]
 
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 1 )
+shader_param/blinking = null
+shader_param/blink_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
-shader_param/changing_class = null
+shader_param/blinking = null
+shader_param/blink_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6, 6.99991 )
 
 [node name="Player" type="KinematicBody2D"]
+material = SubResource( 3 )
 collision_layer = 2
 script = ExtResource( 2 )
 
@@ -24,3 +31,11 @@ texture = ExtResource( 3 )
 position = Vector2( 12, 18 )
 rotation = -1.5708
 shape = SubResource( 2 )
+
+[node name="AutoAttackTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 0.05
+[connection signal="timeout" from="AutoAttackTimer" to="." method="_OnAutoAttackTimerTimeout"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_OnBlinkTimerTimeout"]

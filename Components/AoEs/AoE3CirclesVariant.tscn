@@ -5,7 +5,7 @@
 [ext_resource path="res://Code/AoEs/AoECircles.cs" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 80.0
+radius = 79.0
 
 [node name="AoE" type="Area2D"]
 collision_layer = 4
@@ -13,26 +13,26 @@ collision_mask = 2
 script = ExtResource( 3 )
 
 [node name="Hitbox1" type="CollisionShape2D" parent="."]
-position = Vector2( -85, 86 )
+position = Vector2( -88, 86 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Hitbox1"]
+[node name="Visual" type="Sprite" parent="Hitbox1"]
 material = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Hitbox2" type="CollisionShape2D" parent="."]
-position = Vector2( 85, -7 )
+position = Vector2( 89, -7 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Hitbox2"]
+[node name="Visual" type="Sprite" parent="Hitbox2"]
 material = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Hitbox3" type="CollisionShape2D" parent="."]
-position = Vector2( -85, -125 )
+position = Vector2( -88, -125 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Hitbox3"]
+[node name="Visual" type="Sprite" parent="Hitbox3"]
 material = ExtResource( 1 )
 texture = ExtResource( 2 )
 

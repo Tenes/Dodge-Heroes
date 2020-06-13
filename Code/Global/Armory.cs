@@ -31,6 +31,8 @@ public static class Armory
         {"AoEH", GD.Load("res://Components/AoEs/AoEH.tscn") as PackedScene},
         {"AoEBarcode", GD.Load("res://Components/AoEs/AoEBarcode.tscn") as PackedScene},
         {"AoE3Circles", GD.Load("res://Components/AoEs/AoE3Circles.tscn") as PackedScene},
-        {"AoE3CirclesVariant", GD.Load("res://Components/AoEs/AoE3CirclesVariant.tscn") as PackedScene}
+        {"AoE3CirclesVariant", GD.Load("res://Components/AoEs/AoE3CirclesVariant.tscn") as PackedScene},
+        {"AoEDoughnutH", GD.Load("res://Components/AoEs/AoEDoughnutH.tscn") as PackedScene},
+        {"AoEDoughnutV", GD.Load("res://Components/AoEs/AoEDoughnutV.tscn") as PackedScene}
     };
 }

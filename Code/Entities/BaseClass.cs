@@ -20,7 +20,7 @@ public abstract class BaseClass
     protected float _critChanceModifier = 1f;
     public Classes GetClassFlag() => _classFlag;
 
-    public int GetDamage() => Mathf.RoundToInt(_baseDamage * _damageModifier);
+    public float GetDamage() => _baseDamage * _damageModifier;
     public string GetDamagePercentage() => (_damageModifier * 100).ToString();
     public float GetMovespeed() => _baseMovespeed * _movespeedModifier;
     public string GetMovespeedPercentage() => (_movespeedModifier * 100).ToString();

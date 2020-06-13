@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\AoEs\AoECircles.cs" />
+    <Compile Include="Code\AoEs\AoEDoughnuts.cs" />
     <Compile Include="Code\AoEs\AoERectangles.cs" />
     <Compile Include="Code\Entities\Boss.cs" />
     <Compile Include="Code\Global\Armory.cs" />

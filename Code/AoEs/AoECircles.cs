@@ -12,14 +12,14 @@ public class AoECircles : Area2D
 
     public override void _Ready()
     {
-        _owner = GetParent<Boss>();
+        _owner = Global.Boss;
         _children = GetChildren();
         _timer = GetNode<Timer>("Timer");
         _shaders = new ShaderMaterial[_children.Count - 1];
         for(int index = 0; index < _children.Count; index++)
         {
             if (_children[index] is CollisionShape2D collisionShape)
-                _shaders[index] = collisionShape.GetChild<Sprite>(0).Material as ShaderMaterial;
+                _shaders[index] = collisionShape.GetNode<Sprite>("Visual").Material as ShaderMaterial;
         }
     }
 

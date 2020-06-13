@@ -5,25 +5,26 @@ using System.Linq;
 
 public class Player : KinematicBody2D
 {
-    private List<BaseClass> _equipedClasses;
     protected byte _maxHealthPoint = 3;
     protected byte _currentHealthPoint = 3;
+    private int _numberOfBlink = 0;
+    private int _maxNumberOfBlink = 4;
+    private bool _blinkBool = true;
+    private Sprite _sprite;
+    private ShaderMaterial _shader;
+    private List<BaseClass> _equipedClasses;
     private BaseClass _currentClass;
     private Classes _classFlag;
     private Classes _previousClassFlag;
-    private Sprite _sprite;
     private ActualClassSprite _actualClassSprite;
     private ChangeClassButton _firstClassChangeButton;
     private ChangeClassButton _secondClassChangeButton;
-    private ShaderMaterial _shader;
-    private float _timerElpased = 0;
-    private float _tintTime = 0.05f;
-    private int _numberOfTint = 0;
-    private bool _tintBool = false;
+    private Timer _autoAttackTimer;
+    private Timer _blinkTimer;
     //Movement Related Attributes
     private Vector2 _velocity = new Vector2(0, 0);
     private Vector2 _analogVelocity = new Vector2(0, 0);
-
+    private void SetAutoAttackTimerOnClassAttackSpeed() => _autoAttackTimer.WaitTime = _currentClass.GetAttackspeed();
     //Properties
     public void TakeDamage()
     {
@@ -40,8 +41,8 @@ public class Player : KinematicBody2D
         _classFlag = newClass;
         _currentClass = Armory.AvailableClasses[_classFlag];
         UpdateTexture();
-        _numberOfTint = 3;
-        _tintBool = false;
+        _blinkTimer.Start();
+        SetAutoAttackTimerOnClassAttackSpeed();
     }
     
     //Functions
@@ -74,6 +75,8 @@ public class Player : KinematicBody2D
         _actualClassSprite = GetNode<ActualClassSprite>("/root/Combat/UI/CurrentClass");
         _firstClassChangeButton = GetNode<ChangeClassButton>("/root/Combat/UI/FirstChangeButton");
         _secondClassChangeButton = GetNode<ChangeClassButton>("/root/Combat/UI/SecondChangeButton");
+        _autoAttackTimer = GetNode<Timer>("AutoAttackTimer");
+        _blinkTimer = GetNode<Timer>("BlinkTimer");
 
         _actualClassSprite.SetIconForClass(_classFlag);
         _firstClassChangeButton.SetClassHeld(_equipedClasses[1].GetClassFlag());
@@ -91,20 +94,28 @@ public class Player : KinematicBody2D
         MoveAndSlide(_velocity, maxSlides: 2);
     }
 
-    public override void _Process(float delta)
-    {
-        if(_timerElpased >= _tintTime && _numberOfTint > 0)
-        {
-            _shader.SetShaderParam("changing_class", _tintBool);
-            _tintBool = !_tintBool;
-            _timerElpased = 0;
-            _numberOfTint -= 1;
-        }
-        _timerElpased += delta;
-    }
     public override void _Input(InputEvent @event)
     {
         if(@event is InputEventKey inputKey && inputKey.Scancode == (int)KeyList.Space)
             Global.Boss.TakeDamage(_currentClass.GetDamage());
+    }
+    public void _OnAutoAttackTimerTimeout()
+    {
+        Global.Boss.TakeDamage(_currentClass.GetDamage());
+    }
+    public void _OnBlinkTimerTimeout()
+    {
+        if(_numberOfBlink < _maxNumberOfBlink)
+        {
+            _shader.SetShaderParam("blinking", _blinkBool);
+            _blinkBool = !_blinkBool;
+            _numberOfBlink += 1;
+
+        }
+        else
+        {
+            _blinkTimer.Stop();
+            _numberOfBlink = 0;
+        }
     }
 }
