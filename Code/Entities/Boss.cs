@@ -13,6 +13,11 @@ public class Boss : Sprite
     private Vector2 _centerVector;
     private float GetHealthPercentage() => (_currentHealthPoint/_maxHealthPoint) * 100;
     public void AoEHit() => Global.Player.TakeDamage();
+    private void RemoveBoss()
+    {
+        Global.Boss = null;
+        QueueFree();
+    }
 
     public void TakeDamage(float damage)
     {
@@ -20,7 +25,7 @@ public class Boss : Sprite
         Global.BossLifebar.Value = _currentHealthPoint;
         _blink.Start();
         if(_currentHealthPoint <= 0)
-            QueueFree();
+            RemoveBoss();
     }
     public override void _Ready()
     {

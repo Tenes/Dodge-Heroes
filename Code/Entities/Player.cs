@@ -95,21 +95,21 @@ public class Player : KinematicBody2D
             _velocity = _velocity.Normalized() * _currentClass.GetMovespeed();
             if(_classFlag == Classes.Mage)
                 _autoAttackTimer.Start();
-            else if(_classFlag == Classes.Warrior)
-            {
-                if (Position.y <= 300 && _autoAttackTimer.IsStopped())
-                    _autoAttackTimer.Start();
-                else if (Position.y > 300)
-                    _autoAttackTimer.Stop();
-            }
         }
         MoveAndSlide(_velocity, maxSlides: 2);
+        if(_classFlag == Classes.Warrior)
+        {
+            if (Position.y <= 300 && _autoAttackTimer.IsStopped())
+                _autoAttackTimer.Start();
+            else if (Position.y > 300)
+                _autoAttackTimer.Stop();
+        }
     }
 
     // Signals
     public void _OnAutoAttackTimerTimeout()
     {
-        Global.Boss.TakeDamage(_currentClass.GetDamage());
+        Global.Boss?.TakeDamage(_currentClass.GetDamage());
     }
     public void _OnBlinkTimerTimeout()
     {

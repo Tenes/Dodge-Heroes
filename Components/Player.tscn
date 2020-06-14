@@ -33,7 +33,6 @@ rotation = -1.5708
 shape = SubResource( 3 )
 
 [node name="AutoAttackTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="BlinkTimer" type="Timer" parent="."]
 wait_time = 0.05
