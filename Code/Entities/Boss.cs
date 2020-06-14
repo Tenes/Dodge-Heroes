@@ -19,6 +19,8 @@ public class Boss : Sprite
         _currentHealthPoint -= damage;
         Global.BossLifebar.Value = _currentHealthPoint;
         _blink.Start();
+        if(_currentHealthPoint <= 0)
+            QueueFree();
     }
     public override void _Ready()
     {

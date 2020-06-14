@@ -5,8 +5,9 @@ using System.Linq;
 
 public class Player : KinematicBody2D
 {
-    protected byte _maxHealthPoint = 3;
-    protected byte _currentHealthPoint = 3;
+    private byte _maxHealthPoint = 3;
+    private byte _currentHealthPoint = 3;
+    private bool _notMoving;
     private Sprite _sprite;
     private Blink _blink;
     private List<BaseClass> _equipedClasses;
@@ -20,7 +21,11 @@ public class Player : KinematicBody2D
     //Movement Related Attributes
     private Vector2 _velocity = new Vector2(0, 0);
     private Vector2 _analogVelocity = new Vector2(0, 0);
-    private void SetAutoAttackTimerOnClassAttackSpeed() => _autoAttackTimer.WaitTime = _currentClass.GetAttackspeed();
+    private void SetAutoAttackTimerOnClassAttackSpeed()
+    {
+        _autoAttackTimer.WaitTime = _currentClass.GetAttackspeed();
+        _autoAttackTimer.Start();
+    }
     //Properties
     public void TakeDamage()
     {
@@ -78,6 +83,7 @@ public class Player : KinematicBody2D
         _secondClassChangeButton.SetClassHeld(_equipedClasses[2].GetClassFlag());
         Global.Player = this;
         Global.PlayerHealthUI.UpdateUI(_currentHealthPoint);
+        SetAutoAttackTimerOnClassAttackSpeed();
     }
     public override void _PhysicsProcess(float delta)
     {
@@ -85,16 +91,22 @@ public class Player : KinematicBody2D
         _velocity += _analogVelocity;
 
         if (_velocity.Length() > 0)
+        {
             _velocity = _velocity.Normalized() * _currentClass.GetMovespeed();
+            if(_classFlag == Classes.Mage)
+                _autoAttackTimer.Start();
+            else if(_classFlag == Classes.Warrior)
+            {
+                if (Position.y <= 300 && _autoAttackTimer.IsStopped())
+                    _autoAttackTimer.Start();
+                else if (Position.y > 300)
+                    _autoAttackTimer.Stop();
+            }
+        }
         MoveAndSlide(_velocity, maxSlides: 2);
     }
 
     // Signals
-    public override void _Input(InputEvent @event)
-    {
-        if(@event is InputEventKey inputKey && inputKey.Scancode == (int)KeyList.Space)
-            Global.Boss.TakeDamage(_currentClass.GetDamage());
-    }
     public void _OnAutoAttackTimerTimeout()
     {
         Global.Boss.TakeDamage(_currentClass.GetDamage());

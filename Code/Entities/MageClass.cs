@@ -3,8 +3,8 @@ public class MageClass : BaseClass
     public MageClass()
     {
         _classFlag = Classes.Mage;
-        _damageModifier = 3f;
-        _attackspeedModifier = 0.33f;
+        _damageModifier = 12f;
+        _attackspeedModifier = 0.167f;
         _movespeedModifier = 0.9f;
     }
 }
