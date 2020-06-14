@@ -70,6 +70,7 @@
     <Compile Include="Code\Entities\MageClass.cs" />
     <Compile Include="Code\Global\Global.cs" />
     <Compile Include="Code\Scenes\CombatScene.cs" />
+    <Compile Include="Code\Shaders\Blink.cs" />
     <Compile Include="Code\UI\ActualClassSprite.cs" />
     <Compile Include="Code\UI\Analog.cs" />
     <Compile Include="Code\UI\ChangeClassButton.cs" />

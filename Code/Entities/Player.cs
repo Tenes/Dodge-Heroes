@@ -7,11 +7,8 @@ public class Player : KinematicBody2D
 {
     protected byte _maxHealthPoint = 3;
     protected byte _currentHealthPoint = 3;
-    private int _numberOfBlink = 0;
-    private int _maxNumberOfBlink = 4;
-    private bool _blinkBool = true;
     private Sprite _sprite;
-    private ShaderMaterial _shader;
+    private Blink _blink;
     private List<BaseClass> _equipedClasses;
     private BaseClass _currentClass;
     private Classes _classFlag;
@@ -20,7 +17,6 @@ public class Player : KinematicBody2D
     private ChangeClassButton _firstClassChangeButton;
     private ChangeClassButton _secondClassChangeButton;
     private Timer _autoAttackTimer;
-    private Timer _blinkTimer;
     //Movement Related Attributes
     private Vector2 _velocity = new Vector2(0, 0);
     private Vector2 _analogVelocity = new Vector2(0, 0);
@@ -41,7 +37,7 @@ public class Player : KinematicBody2D
         _classFlag = newClass;
         _currentClass = Armory.AvailableClasses[_classFlag];
         UpdateTexture();
-        _blinkTimer.Start();
+        _blink.Start();
         SetAutoAttackTimerOnClassAttackSpeed();
     }
     
@@ -63,7 +59,7 @@ public class Player : KinematicBody2D
     public override void _Ready()
     {
         _sprite = GetNode<Sprite>("Sprite");
-        _shader = _sprite.Material as ShaderMaterial;
+        _blink = new Blink(_sprite.Material as ShaderMaterial, GetNode<Timer>("BlinkTimer"));
         _equipedClasses = new List<BaseClass>
         {
             Armory.AvailableClasses[Classes.Warrior],
@@ -76,7 +72,6 @@ public class Player : KinematicBody2D
         _firstClassChangeButton = GetNode<ChangeClassButton>("/root/Combat/UI/FirstChangeButton");
         _secondClassChangeButton = GetNode<ChangeClassButton>("/root/Combat/UI/SecondChangeButton");
         _autoAttackTimer = GetNode<Timer>("AutoAttackTimer");
-        _blinkTimer = GetNode<Timer>("BlinkTimer");
 
         _actualClassSprite.SetIconForClass(_classFlag);
         _firstClassChangeButton.SetClassHeld(_equipedClasses[1].GetClassFlag());
@@ -94,6 +89,7 @@ public class Player : KinematicBody2D
         MoveAndSlide(_velocity, maxSlides: 2);
     }
 
+    // Signals
     public override void _Input(InputEvent @event)
     {
         if(@event is InputEventKey inputKey && inputKey.Scancode == (int)KeyList.Space)
@@ -105,17 +101,6 @@ public class Player : KinematicBody2D
     }
     public void _OnBlinkTimerTimeout()
     {
-        if(_numberOfBlink < _maxNumberOfBlink)
-        {
-            _shader.SetShaderParam("blinking", _blinkBool);
-            _blinkBool = !_blinkBool;
-            _numberOfBlink += 1;
-
-        }
-        else
-        {
-            _blinkTimer.Stop();
-            _numberOfBlink = 0;
-        }
+        _blink.TriggerBlink();
     }
 }

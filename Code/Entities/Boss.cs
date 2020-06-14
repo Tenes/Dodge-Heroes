@@ -7,14 +7,10 @@ public class Boss : Sprite
 {
     private float _maxHealthPoint = 180;
     private float _currentHealthPoint = 180;
-    private int _numberOfBlink = 0;
-    private int _maxNumberOfBlink = 4;
-    private bool _blinkBool = true;
-    private ShaderMaterial _shader;
+    private Blink _blink;
     private PackedScene[] _bossAoEs;
     private Random _bossRng;
     private Vector2 _centerVector;
-    private Timer _blinkTimer;
     private float GetHealthPercentage() => (_currentHealthPoint/_maxHealthPoint) * 100;
     public void AoEHit() => Global.Player.TakeDamage();
 
@@ -22,7 +18,7 @@ public class Boss : Sprite
     {
         _currentHealthPoint -= damage;
         Global.BossLifebar.Value = _currentHealthPoint;
-        _blinkTimer.Start();
+        _blink.Start();
     }
     public override void _Ready()
     {
@@ -35,10 +31,9 @@ public class Boss : Sprite
             Armory.AoEsByName["AoEDoughnutH"],
             Armory.AoEsByName["AoEDoughnutV"]
         };
-        _shader = Material as ShaderMaterial;
+        _blink = new Blink(Material as ShaderMaterial, GetNode<Timer>("BlinkTimer"));
         _bossRng = new Random();
         _centerVector = new Vector2(GetViewportRect().Size.x/2, GetViewportRect().Size.y/2);
-        _blinkTimer = GetNode<Timer>("BlinkTimer");
         Global.Boss = this;
         Global.BossLifebar.MaxValue = _maxHealthPoint;
         Global.BossLifebar.Value = _currentHealthPoint;
@@ -68,17 +63,6 @@ public class Boss : Sprite
     }
     public void _OnBlinkTimerTimeout()
     {
-        if(_numberOfBlink < _maxNumberOfBlink)
-        {
-            _shader.SetShaderParam("blinking", _blinkBool);
-            _blinkBool = !_blinkBool;
-            _numberOfBlink += 1;
-
-        }
-        else
-        {
-            _blinkTimer.Stop();
-            _numberOfBlink = 0;
-        }
+        _blink.TriggerBlink();
     }
 }
