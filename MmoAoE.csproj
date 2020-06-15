@@ -74,6 +74,7 @@
     <Compile Include="Code\UI\ActualClassSprite.cs" />
     <Compile Include="Code\UI\Analog.cs" />
     <Compile Include="Code\UI\ChangeClassButton.cs" />
+    <Compile Include="Code\UI\FloatingText.cs" />
     <Compile Include="Code\UI\Lifebar.cs" />
     <Compile Include="Code\UI\PlayerHealth.cs" />
     <Compile Include="Code\UI\TimerLabel.cs" />

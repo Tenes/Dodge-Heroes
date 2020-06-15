@@ -9,7 +9,6 @@ public class Boss : Sprite
     private float _currentHealthPoint = 180;
     private Blink _blink;
     private PackedScene[] _bossAoEs;
-    private Random _bossRng;
     private Vector2 _centerVector;
     private float GetHealthPercentage() => (_currentHealthPoint/_maxHealthPoint) * 100;
     public void AoEHit() => Global.Player.TakeDamage();
@@ -18,12 +17,19 @@ public class Boss : Sprite
         Global.Boss = null;
         QueueFree();
     }
+    private void AddFloatingText(string text)
+    {
+        FloatingText floatingDamage = (FloatingText)Armory.FloatingText.Instance();
+        floatingDamage.SetText(text);
+        AddChild(floatingDamage);
+    }
 
     public void TakeDamage(float damage)
     {
         _currentHealthPoint -= damage;
         Global.BossLifebar.Value = _currentHealthPoint;
         _blink.Start();
+        AddFloatingText(damage.ToString());
         if(_currentHealthPoint <= 0)
             RemoveBoss();
     }
@@ -32,6 +38,7 @@ public class Boss : Sprite
         _bossAoEs = new PackedScene[]
         {
             Armory.AoEsByName["AoEH"],
+            Armory.AoEsByName["AoE4Squares"],
             Armory.AoEsByName["AoEBarcode"],
             Armory.AoEsByName["AoE3Circles"],
             Armory.AoEsByName["AoE3CirclesVariant"],
@@ -39,7 +46,6 @@ public class Boss : Sprite
             Armory.AoEsByName["AoEDoughnutV"]
         };
         _blink = new Blink(Material as ShaderMaterial, GetNode<Timer>("BlinkTimer"));
-        _bossRng = new Random();
         _centerVector = new Vector2(GetViewportRect().Size.x/2, GetViewportRect().Size.y/2);
         Global.Boss = this;
         Global.BossLifebar.MaxValue = _maxHealthPoint;
@@ -50,7 +56,7 @@ public class Boss : Sprite
         List<int> indexes = Enumerable.Range(0, _bossAoEs.Length).ToList();
         for(int i = 0; i < numberOfAoE; i++)
         {
-            int index = _bossRng.Next(0, indexes.Count);
+            int index = Global.Rng.Next(0, indexes.Count);
             Area2D AoE = (Area2D)_bossAoEs[indexes[index]].Instance();
             AoE.SetAsToplevel(true);
             AoE.GlobalPosition = _centerVector;
