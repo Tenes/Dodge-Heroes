@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Components/UI/Analog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Components/UI/ClassChangeButton.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Components/UI/Lifebar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Components/UI/PlayerHealth.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Components/Entities/Boss.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Sprites/Background.jpg" type="Texture" id=10]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource( 4 )
@@ -36,7 +37,10 @@ margin_top = 674.0
 margin_right = 331.0
 margin_bottom = 738.0
 
-[node name="Icon" parent="UI/FirstChangeButton" index="0"]
+[node name="TextureProgress" parent="UI/FirstChangeButton" index="0"]
+modulate = Color( 0.231373, 0.2, 0.2, 0.901961 )
+
+[node name="Icon" parent="UI/FirstChangeButton" index="1"]
 region_rect = Rect2( 162, 450, 15, 15 )
 
 [node name="Label" parent="UI/FirstChangeButton/Timer" index="0"]
@@ -51,7 +55,7 @@ margin_top = 674.0
 margin_right = 405.0
 margin_bottom = 738.0
 
-[node name="Icon" parent="UI/SecondChangeButton" index="0"]
+[node name="Icon" parent="UI/SecondChangeButton" index="1"]
 region_rect = Rect2( 198, 450, 15, 15 )
 
 [node name="Label" parent="UI/SecondChangeButton/Timer" index="0"]
@@ -75,6 +79,13 @@ margin_left = -17.0
 margin_top = -162.0
 margin_right = 17.0
 margin_bottom = -58.0
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.40332, 0.348837, 0.280434, 0.901961 )
+texture = ExtResource( 10 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 432, 768 )
 
 [node name="Boss" parent="." instance=ExtResource( 9 )]
 position = Vector2( 218, 90 )
