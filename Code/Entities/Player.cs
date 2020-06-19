@@ -21,6 +21,13 @@ public class Player : KinematicBody2D
     //Movement Related Attributes
     private Vector2 _velocity = new Vector2(0, 0);
     private Vector2 _analogVelocity = new Vector2(0, 0);
+    private void RemovePlayer()
+    {
+        Global.Player = null;
+        _firstClassChangeButton.Disabled = true;
+        _secondClassChangeButton.Disabled = true;
+        QueueFree();
+    }
     private void SetAutoAttackTimerOnClassAttackSpeed()
     {
         _autoAttackTimer.WaitTime = _currentClass.GetAttackspeed();
@@ -33,7 +40,7 @@ public class Player : KinematicBody2D
         //SHADER STUFF HERE
         Global.PlayerHealthUI.UpdateUI(_currentHealthPoint);
         if (_currentHealthPoint == 0)
-            QueueFree();
+            RemovePlayer();
     }
     public Classes GetClassFlag() => _classFlag;
     public void SetClass(Classes newClass)
@@ -109,7 +116,7 @@ public class Player : KinematicBody2D
     // Signals
     public void _OnAutoAttackTimerTimeout()
     {
-        Global.Boss?.TakeDamage(_currentClass.GetDamage());
+        Global.Boss?.TakeDamage(_currentClass.Hit());
     }
     public void _OnBlinkTimerTimeout()
     {

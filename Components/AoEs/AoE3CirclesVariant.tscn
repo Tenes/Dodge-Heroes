@@ -13,7 +13,7 @@ collision_mask = 2
 script = ExtResource( 3 )
 
 [node name="Hitbox1" type="CollisionShape2D" parent="."]
-position = Vector2( -88, 86 )
+position = Vector2( -90, 110 )
 shape = SubResource( 1 )
 
 [node name="Visual" type="Sprite" parent="Hitbox1"]
@@ -21,7 +21,7 @@ material = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Hitbox2" type="CollisionShape2D" parent="."]
-position = Vector2( 89, -7 )
+position = Vector2( 90, 0 )
 shape = SubResource( 1 )
 
 [node name="Visual" type="Sprite" parent="Hitbox2"]
@@ -29,7 +29,7 @@ material = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Hitbox3" type="CollisionShape2D" parent="."]
-position = Vector2( -88, -125 )
+position = Vector2( -90, -110 )
 shape = SubResource( 1 )
 
 [node name="Visual" type="Sprite" parent="Hitbox3"]

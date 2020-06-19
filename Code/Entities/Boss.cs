@@ -10,26 +10,20 @@ public class Boss : Sprite
     private Blink _blink;
     private PackedScene[] _bossAoEs;
     private Vector2 _centerVector;
+    public float GetCurrentHealth() => _currentHealthPoint;
     private float GetHealthPercentage() => (_currentHealthPoint/_maxHealthPoint) * 100;
-    public void AoEHit() => Global.Player.TakeDamage();
+    public void AoEHit() => Global.Player?.TakeDamage();
     private void RemoveBoss()
     {
         Global.Boss = null;
         QueueFree();
     }
-    private void AddFloatingText(string text)
-    {
-        FloatingText floatingDamage = (FloatingText)Armory.FloatingText.Instance();
-        floatingDamage.SetText(text);
-        AddChild(floatingDamage);
-    }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage((float damage, bool isCritical) hit)
     {
-        _currentHealthPoint -= damage;
-        Global.BossLifebar.Value = _currentHealthPoint;
+        _currentHealthPoint -= hit.damage;
+        Global.BossLifebar.UpdateLifeBar(hit.damage.ToString(), hit.isCritical);
         _blink.Start();
-        AddFloatingText(damage.ToString());
         if(_currentHealthPoint <= 0)
             RemoveBoss();
     }
@@ -48,8 +42,8 @@ public class Boss : Sprite
         _blink = new Blink(Material as ShaderMaterial, GetNode<Timer>("BlinkTimer"));
         _centerVector = new Vector2(GetViewportRect().Size.x/2, GetViewportRect().Size.y/2);
         Global.Boss = this;
-        Global.BossLifebar.MaxValue = _maxHealthPoint;
-        Global.BossLifebar.Value = _currentHealthPoint;
+        Global.BossLifebar.SetMaxValue(_maxHealthPoint);
+        Global.BossLifebar.SetValue(_currentHealthPoint);
     }
     private void LaunchRandomAoE(int numberOfAoE)
     {
@@ -68,9 +62,9 @@ public class Boss : Sprite
     public void _OnTimerTimeout()
     {
         if (GetHealthPercentage() >= 70)
-            LaunchRandomAoE(1);
+            LaunchRandomAoE(3);
         else if (GetHealthPercentage() >= 40)
-            LaunchRandomAoE(2);
+            LaunchRandomAoE(3);
         else
             LaunchRandomAoE(3);
     }

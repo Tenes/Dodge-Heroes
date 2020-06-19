@@ -2,7 +2,6 @@ using Godot;
 
 public class ChangeClassButton : TextureButton
 {
-    private static Player _player;
     private static ActualClassSprite _currentClass;
     private static int _cooldown = 5;
     private Sprite _classIcon;
@@ -15,7 +14,6 @@ public class ChangeClassButton : TextureButton
 
     public override void _Ready()
     {
-        _player = GetNode<Player>("/root/Combat/Player");
         _currentClass = GetNode<ActualClassSprite>("/root/Combat/UI/CurrentClass");
         _classIcon = GetNode<Sprite>("Icon");
         _changeTimer = GetNode<Timer>("Timer");
@@ -35,9 +33,9 @@ public class ChangeClassButton : TextureButton
     }
     public void ChangePlayerClassAndUpdateButtons(Classes newClass)
     {
-        _classHeld = _player.GetClassFlag();
-        _classIcon.RegionRect = Armory.ClassesButtonRegion[_player.GetClassFlag()];
-        _player.SetClass(newClass);
+        _classHeld = Global.Player.GetClassFlag();
+        _classIcon.RegionRect = Armory.ClassesButtonRegion[Global.Player.GetClassFlag()];
+        Global.Player.SetClass(newClass);
         _currentClass.SetIconForClass(newClass);
         _changeTimer.Start();
         SwitchState();

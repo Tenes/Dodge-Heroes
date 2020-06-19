@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using Godot;
 
-public enum Classes {Warrior, Archer, Mage};
+public enum Classes { Warrior, Archer, Mage };
 
 public abstract class BaseClass
 {
@@ -22,9 +23,10 @@ public abstract class BaseClass
 
     public float GetDamage() => _baseDamage * _damageModifier;
     public string GetDamagePercentage() => (_damageModifier * 100).ToString();
+    public float GetCriticalHitDamage() => _baseDamage * _damageModifier * GetCritDamage();
     public float GetMovespeed() => _baseMovespeed * _movespeedModifier;
     public string GetMovespeedPercentage() => (_movespeedModifier * 100).ToString();
-    public float GetAttackspeed() => _baseAttackspeed * (1/_attackspeedModifier);
+    public float GetAttackspeed() => _baseAttackspeed * (1 / _attackspeedModifier);
     public string GetAttackspeedPercentage() => (_attackspeedModifier * 100).ToString();
     public float GetChanceToDropItemAndMaterials() => _baseChanceToDropItemAndMaterials * _chanceToDropItemAndMaterialsModifier;
     public string GetChanceToDropItemAndMaterialsPercentage() => (_chanceToDropItemAndMaterialsModifier * 100).ToString();
@@ -32,4 +34,11 @@ public abstract class BaseClass
     public string GetCritDamagePercentage() => (_critDamageModifier * 100).ToString();
     public float GetCritChance() => _baseCritChance * _critChanceModifier;
     public string GetCritChancePercentage() => (_critChanceModifier * 100).ToString();
+    public (float damage, bool isCritical) Hit()
+    {
+        if (Global.Rng.Next(0, 101) >= 100 - (GetCritChance() * 100))
+            return (GetCriticalHitDamage(), true);
+        else
+            return (GetDamage(), false);
+    }
 }
