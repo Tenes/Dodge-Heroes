@@ -15,13 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="DodgeHeroes"
-run/main_scene="res://Scenes/City.tscn"
-config/icon="res://Assets/Icons/icon.png"
-
-[debug]
-
-shapes/collision/shape_color=Color( 0.639216, 0.705882, 0.717647, 0.501961 )
+config/name="Dodge Heroes"
+run/main_scene="res://Scenes/Combat.tscn"
+config/icon="res://icon.png"
 
 [display]
 
@@ -30,42 +26,15 @@ window/size/height=768
 window/size/resizable=false
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
-
-[importer_defaults]
-
-texture={
-"compress/bptc_ldr": 0,
-"compress/hdr_mode": 0,
-"compress/lossy_quality": 0.7,
-"compress/mode": 0,
-"compress/normal_map": 0,
-"detect_3d": false,
-"flags/anisotropic": false,
-"flags/filter": false,
-"flags/mipmaps": false,
-"flags/repeat": 0,
-"flags/srgb": 2,
-"process/HDR_as_SRGB": false,
-"process/fix_alpha_border": true,
-"process/invert_color": false,
-"process/premult_alpha": false,
-"size_limit": 0,
-"stream": false,
-"svg/scale": 1.0
-}
+window/stretch/aspect="expand"
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
 
-[layer_names]
-
-2d_physics/layer_1="World"
-2d_physics/layer_2="Player"
-2d_physics/layer_3="Hurtboxes"
-
 [rendering]
 
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
+vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
