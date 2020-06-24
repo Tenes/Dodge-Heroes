@@ -41,10 +41,10 @@ margin_bottom = 746.0
 region_rect = Rect2( 162, 450, 15, 15 )
 
 [node name="Label" parent="UI/FirstChangeButton/Timer" index="0"]
-margin_left = 269.0
-margin_top = 674.0
-margin_right = 333.0
-margin_bottom = 738.0
+margin_left = 268.0
+margin_top = 682.0
+margin_right = 332.0
+margin_bottom = 746.0
 
 [node name="SecondChangeButton" parent="UI" instance=ExtResource( 2 )]
 margin_left = 342.0
@@ -56,10 +56,10 @@ margin_bottom = 746.0
 region_rect = Rect2( 198, 450, 15, 15 )
 
 [node name="Label" parent="UI/SecondChangeButton/Timer" index="0"]
-margin_left = 343.0
-margin_top = 674.0
-margin_right = 407.0
-margin_bottom = 738.0
+margin_left = 342.0
+margin_top = 682.0
+margin_right = 406.0
+margin_bottom = 746.0
 
 [node name="Lifebar" parent="UI" instance=ExtResource( 7 )]
 margin_left = 70.0
@@ -78,7 +78,7 @@ margin_right = 17.0
 margin_bottom = -26.0
 
 [node name="Background" type="Sprite" parent="."]
-modulate = Color( 0.486275, 0.6, 0.596078, 0.901961 )
+modulate = Color( 0.423529, 0.482353, 0.466667, 0.901961 )
 texture = ExtResource( 10 )
 centered = false
 region_enabled = true

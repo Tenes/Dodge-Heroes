@@ -15,8 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="MmoAoE"
-run/main_scene="res://Scenes/Combat.tscn"
+config/name="DodgeHeroes"
+run/main_scene="res://Scenes/City.tscn"
 config/icon="res://Assets/Icons/icon.png"
 
 [debug]
