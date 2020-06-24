@@ -1,0 +1,5 @@
+D:\Documents\Projects\Dodge-Heroes\.mono\temp\bin\Debug\Dodge Heroes.dll
+D:\Documents\Projects\Dodge-Heroes\.mono\temp\bin\Debug\Dodge Heroes.pdb
+D:\Documents\Projects\Dodge-Heroes\.mono\temp\obj\Debug\Dodge Heroes.csprojAssemblyReference.cache
+D:\Documents\Projects\Dodge-Heroes\.mono\temp\obj\Debug\Dodge Heroes.dll
+D:\Documents\Projects\Dodge-Heroes\.mono\temp\obj\Debug\Dodge Heroes.pdb
