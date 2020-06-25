@@ -64,12 +64,14 @@
     <Compile Include="Code\Entities\ArcherClass.cs" />
     <Compile Include="Code\Entities\MageClass.cs" />
     <Compile Include="Code\Global\Global.cs" />
+    <Compile Include="Code\Scenes\City.cs" />
     <Compile Include="Code\Scenes\CombatScene.cs" />
     <Compile Include="Code\Shaders\Blink.cs" />
     <Compile Include="Code\UI\ActualClassSprite.cs" />
     <Compile Include="Code\UI\Analog.cs" />
     <Compile Include="Code\UI\ChangeClassButton.cs" />
     <Compile Include="Code\UI\FloatingText.cs" />
+    <Compile Include="Code\UI\GoogleSignIn.cs" />
     <Compile Include="Code\UI\Lifebar.cs" />
     <Compile Include="Code\UI\PlayerHealth.cs" />
     <Compile Include="Code\UI\TimerLabel.cs" />

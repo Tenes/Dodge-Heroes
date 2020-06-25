@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "606467255616",
+    "firebase_url": "https://dodge-heroes-5315c.firebaseio.com",
+    "project_id": "dodge-heroes-5315c",
+    "storage_bucket": "dodge-heroes-5315c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606467255616:android:6655137e9f93559f921ea5",
+        "android_client_info": {
+          "package_name": "com.wolfystudio.dodgeheroes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606467255616-qtof6a0qe0fd354a7tru45ccal8381ce.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wolfystudio.dodgeheroes",
+            "certificate_hash": "a3bf31c104cbeeb030a9f719d03ffa9bf874c7d6"
+          }
+        },
+        {
+          "client_id": "606467255616-rci5im6hk1b9s1hrnvs077cpbnll6qec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNi94YYSiqI0wdqVz0A6tiYssgHoBHRmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606467255616-rci5im6hk1b9s1hrnvs077cpbnll6qec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
