@@ -13,14 +13,10 @@ _global_script_class_icons={
 
 }
 
-[android]
-
-modules="org/godotengine/godot/Firebase"
-
 [application]
 
 config/name="Dodge Heroes"
-run/main_scene="res://Scenes/Startup.tscn"
+run/main_scene="res://Scenes/Combat.tscn"
 config/icon="res://icon.png"
 
 [display]

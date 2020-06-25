@@ -8,5 +8,4 @@ public static class Global
     public static Lifebar BossLifebar;
     public static PlayerHealth PlayerHealthUI;
     public static Random Rng = new Random();
-    public static object Firebase = Engine.GetSingleton("Firebase");
 }
