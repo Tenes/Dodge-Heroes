@@ -4,7 +4,6 @@
 [ext_resource path="res://Assets/UI/HealthBarFill.jpg" type="Texture" id=2]
 [ext_resource path="res://Code/UI/Lifebar.cs" type="Script" id=3]
 
-
 [node name="Lifebar" type="HBoxContainer"]
 script = ExtResource( 3 )
 __meta__ = {

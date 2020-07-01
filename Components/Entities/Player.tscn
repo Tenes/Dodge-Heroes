@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Shaders/Blink.shader" type="Shader" id=1]
 [ext_resource path="res://Code/Entities/Player.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/Warrior.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/AttackBarEmpty.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/AttackBarFull.png" type="Texture" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
@@ -36,5 +38,16 @@ shape = SubResource( 3 )
 
 [node name="BlinkTimer" type="Timer" parent="."]
 wait_time = 0.05
+
+[node name="AutoAttackBar" type="TextureProgress" parent="."]
+margin_left = -12.7911
+margin_top = 28.3273
+margin_right = 35.2089
+margin_bottom = 68.3273
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="AutoAttackTimer" to="." method="_OnAutoAttackTimerTimeout"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_OnBlinkTimerTimeout"]

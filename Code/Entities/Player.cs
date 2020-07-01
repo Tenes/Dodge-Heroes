@@ -18,6 +18,7 @@ public class Player : KinematicBody2D
     private ChangeClassButton _firstClassChangeButton;
     private ChangeClassButton _secondClassChangeButton;
     private Timer _autoAttackTimer;
+    private TextureProgress _autoAttackBar;
     //Movement Related Attributes
     private Vector2 _velocity = new Vector2(0, 0);
     private Vector2 _analogVelocity = new Vector2(0, 0);
@@ -32,6 +33,7 @@ public class Player : KinematicBody2D
     {
         _autoAttackTimer.WaitTime = _currentClass.GetAttackspeed();
         _autoAttackTimer.Start();
+        _autoAttackBar.MaxValue = _autoAttackTimer.WaitTime * 100;
     }
     //Properties
     public void TakeDamage()
@@ -84,6 +86,7 @@ public class Player : KinematicBody2D
         _firstClassChangeButton = GetNode<ChangeClassButton>("/root/Combat/UI/FirstChangeButton");
         _secondClassChangeButton = GetNode<ChangeClassButton>("/root/Combat/UI/SecondChangeButton");
         _autoAttackTimer = GetNode<Timer>("AutoAttackTimer");
+        _autoAttackBar = GetNode<TextureProgress>("AutoAttackBar");
 
         _actualClassSprite.SetIconForClass(_classFlag);
         _firstClassChangeButton.SetClassHeld(_equipedClasses[1].GetClassFlag());
@@ -106,11 +109,13 @@ public class Player : KinematicBody2D
         MoveAndSlide(_velocity, maxSlides: 2);
         if(_classFlag == Classes.Warrior)
         {
-            if (Position.y <= 300 && _autoAttackTimer.IsStopped())
+            if (Position.y > 300)
                 _autoAttackTimer.Start();
-            else if (Position.y > 300)
-                _autoAttackTimer.Stop();
         }
+    }
+    public override void _Process(float delta)
+    {
+        _autoAttackBar.Value = _autoAttackBar.MaxValue - Mathf.Round(_autoAttackTimer.TimeLeft * 100);
     }
 
     // Signals
