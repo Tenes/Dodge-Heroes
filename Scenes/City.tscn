@@ -14,12 +14,12 @@ texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 432, 0 )
 
 [node name="Armory" type="TouchScreenButton" parent="."]
-position = Vector2( 246.166, 135 )
+position = Vector2( 38.5556, 131.501 )
 scale = Vector2( 0.837079, 0.847192 )
 normal = ExtResource( 2 )
 
 [node name="QuestPanel" type="TouchScreenButton" parent="."]
-position = Vector2( 33.6673, 120 )
+position = Vector2( 251.775, 122.333 )
 scale = Vector2( 0.837079, 0.896428 )
 normal = ExtResource( 2 )
 
@@ -27,3 +27,4 @@ normal = ExtResource( 2 )
 position = Vector2( 135, 406 )
 scale = Vector2( 0.837079, 0.854294 )
 normal = ExtResource( 2 )
+[connection signal="pressed" from="QuestPanel" to="." method="_OnQuestPanelPressed"]

@@ -5,11 +5,13 @@ using System.Linq;
 
 public class Boss : Sprite
 {
+    private string _title = "Dragon";
     private float _maxHealthPoint = 180;
     private float _currentHealthPoint = 180;
     private Blink _blink;
     private PackedScene[] _bossAoEs;
     private Vector2 _centerVector;
+    public string GetTitle() => _title;
     public float GetCurrentHealth() => _currentHealthPoint;
     private float GetHealthPercentage() => (_currentHealthPoint/_maxHealthPoint) * 100;
     public void AoEHit() => Global.Player?.TakeDamage();

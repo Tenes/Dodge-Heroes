@@ -37,4 +37,28 @@ public static class Armory
         {"AoEDoughnutV", GD.Load("res://Components/AoEs/AoEDoughnutV.tscn") as PackedScene}
     };
     public static PackedScene FloatingText = GD.Load("res://Components/UI/FloatingText.tscn") as PackedScene;
+    public static PackedScene QuestBoard = GD.Load("res://Components/UI/QuestBoard.tscn") as PackedScene;
+    public static PackedScene QuestListItem = GD.Load("res://Components/UI/QuestListItem.tscn") as PackedScene;
+    public static List<PackedScene> Bosses = new List<PackedScene>
+    {
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene
+    };
 }

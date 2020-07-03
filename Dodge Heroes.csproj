@@ -75,6 +75,8 @@
     <Compile Include="Code\UI\FloatingText.cs" />
     <Compile Include="Code\UI\Lifebar.cs" />
     <Compile Include="Code\UI\PlayerHealth.cs" />
+    <Compile Include="Code\UI\QuestBoard.cs" />
+    <Compile Include="Code\UI\QuestListItem.cs" />
     <Compile Include="Code\UI\TimerLabel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
