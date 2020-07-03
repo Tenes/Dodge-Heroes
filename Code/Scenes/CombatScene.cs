@@ -7,7 +7,8 @@ public class CombatScene : Node2D
     private float _timeToHit = 10f;
     public override void _Ready()
     {
-        
+        AddChild(Global.CurrentBoss);
+        MoveChild(Global.CurrentBoss, 2);
     }
 
     public override void _Process(float delta)

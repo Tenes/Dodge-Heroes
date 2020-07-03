@@ -13,11 +13,12 @@ public class QuestBoard : ColorRect
             QuestListItem tempQuest = (QuestListItem)Armory.QuestListItem.Instance();
             tempQuest.SetQuestTitle(tempBoss.GetTitle());
             tempQuest.SetMapName("Floating Platform");
+            tempQuest.SetTargetBoss(tempBoss);
             _vboxContainer.AddChild(tempQuest);
         }
     }
 
-    public void _OnExitButtonPressed()
+    public void _OnExitButtonReleased()
     {
         GetParent().RemoveChild(this);
     }

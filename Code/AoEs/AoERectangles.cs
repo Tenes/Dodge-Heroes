@@ -12,7 +12,7 @@ public class AoERectangles : Area2D
 
     public override void _Ready()
     {
-        _owner = Global.Boss;
+        _owner = Global.CurrentBoss;
         _children = GetChildren();
         _timer = GetNode<Timer>("Timer");
         _shaders = new ShaderMaterial[_children.Count - 1];

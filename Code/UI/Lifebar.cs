@@ -9,7 +9,7 @@ public class Lifebar : HBoxContainer
     public void SetMaxValue(float value) => _filledBar.MaxValue = value;
     public void UpdateLifeBar(string damageString, bool isCritical)
     {
-        _filledBar.Value = Global.Boss.GetCurrentHealth();
+        _filledBar.Value = Global.CurrentBoss.GetCurrentHealth();
         AddFloatingText(damageString, isCritical);
     }
     public override void _Ready()

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class QuestListItem : VBoxContainer
+public class QuestListItem : HBoxContainer
 {
     private string _questTitle;
     private string _map;
@@ -14,15 +14,15 @@ public class QuestListItem : VBoxContainer
     
     public override void _Ready()
     {
-        _questTitleLabel = GetNode<Label>("QuestTitle");
+        _questTitleLabel = GetNode<Label>("VBoxContainer/QuestTitle");
         _questTitleLabel.Text = _questTitle;
-        _mapLabel = GetNode<Label>("Map");
+        _mapLabel = GetNode<Label>("VBoxContainer/Map");
         _mapLabel.Text = _map;
+        Global.CurrentBoss = _targetBoss;
     }
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public void _OnHuntButtonReleased()
+    {
+        SceneTree tree = GetTree();
+        tree.ChangeSceneTo(Armory.CombatScene);
+    }
 }

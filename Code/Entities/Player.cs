@@ -121,7 +121,7 @@ public class Player : KinematicBody2D
     // Signals
     public void _OnAutoAttackTimerTimeout()
     {
-        Global.Boss?.TakeDamage(_currentClass.Hit());
+        Global.CurrentBoss?.TakeDamage(_currentClass.Hit());
     }
     public void _OnBlinkTimerTimeout()
     {

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 public static class Armory
 {
+    public static PackedScene CombatScene = GD.Load("res://Scenes/Combat.tscn") as PackedScene;
+    public static PackedScene CityScene = GD.Load("res://Scenes/City.tscn") as PackedScene;
+    public static PackedScene FloatingText = GD.Load("res://Components/UI/FloatingText.tscn") as PackedScene;
+    public static PackedScene QuestBoard = GD.Load("res://Components/UI/QuestBoard.tscn") as PackedScene;
+    public static PackedScene QuestListItem = GD.Load("res://Components/UI/QuestListItem.tscn") as PackedScene;
     public static Dictionary<Classes, BaseClass> AvailableClasses = new Dictionary<Classes, BaseClass>
     {
         {Classes.Warrior, new WarriorClass()},
@@ -36,9 +41,6 @@ public static class Armory
         {"AoEDoughnutH", GD.Load("res://Components/AoEs/AoEDoughnutH.tscn") as PackedScene},
         {"AoEDoughnutV", GD.Load("res://Components/AoEs/AoEDoughnutV.tscn") as PackedScene}
     };
-    public static PackedScene FloatingText = GD.Load("res://Components/UI/FloatingText.tscn") as PackedScene;
-    public static PackedScene QuestBoard = GD.Load("res://Components/UI/QuestBoard.tscn") as PackedScene;
-    public static PackedScene QuestListItem = GD.Load("res://Components/UI/QuestListItem.tscn") as PackedScene;
     public static List<PackedScene> Bosses = new List<PackedScene>
     {
         GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,

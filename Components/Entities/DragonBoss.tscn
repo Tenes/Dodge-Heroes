@@ -11,6 +11,7 @@ shader_param/blink_color = Color( 0.796078, 0.12549, 0.12549, 1 )
 
 [node name="Boss" type="Sprite"]
 material = SubResource( 1 )
+position = Vector2( 220.486, 93.2341 )
 scale = Vector2( 0.660163, 0.467565 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )

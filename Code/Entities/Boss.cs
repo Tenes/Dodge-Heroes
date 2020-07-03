@@ -17,8 +17,10 @@ public class Boss : Sprite
     public void AoEHit() => Global.Player?.TakeDamage();
     private void RemoveBoss()
     {
-        Global.Boss = null;
+        Global.CurrentBoss = null;
         QueueFree();
+        //ADD LOOT THING AND WINDOW HERE
+        GetTree().ChangeSceneTo(Armory.CityScene);
     }
 
     public void TakeDamage((float damage, bool isCritical) hit)
@@ -43,7 +45,6 @@ public class Boss : Sprite
         };
         _blink = new Blink(Material as ShaderMaterial, GetNode<Timer>("BlinkTimer"));
         _centerVector = new Vector2(GetViewportRect().Size.x/2, GetViewportRect().Size.y/2);
-        Global.Boss = this;
         Global.BossLifebar.SetMaxValue(_maxHealthPoint);
         Global.BossLifebar.SetValue(_currentHealthPoint);
     }
@@ -64,9 +65,9 @@ public class Boss : Sprite
     public void _OnTimerTimeout()
     {
         if (GetHealthPercentage() >= 70)
-            LaunchRandomAoE(3);
+            LaunchRandomAoE(1);
         else if (GetHealthPercentage() >= 40)
-            LaunchRandomAoE(3);
+            LaunchRandomAoE(2);
         else
             LaunchRandomAoE(3);
     }

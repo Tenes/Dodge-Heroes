@@ -8,7 +8,7 @@ public class City : Node2D
     {
         _questBoard = (QuestBoard)Armory.QuestBoard.Instance();
     }
-    public void _OnQuestPanelPressed()
+    public void _OnQuestPanelReleased()
     {
         if(GetNodeOrNull("QuestBoard") == null)
             AddChild(_questBoard);

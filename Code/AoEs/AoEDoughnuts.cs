@@ -20,7 +20,7 @@ public class AoEDoughnuts : Area2D
 
     public override void _Ready()
     {
-        _owner = Global.Boss;
+        _owner = Global.CurrentBoss;
         _outerArea = GetNode<Area2D>("Outer");
         __outerAreaChildren = _outerArea.GetChildren();
         _timer = GetNode<Timer>("Timer");
