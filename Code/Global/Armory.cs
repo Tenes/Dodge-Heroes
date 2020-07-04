@@ -20,11 +20,11 @@ public static class Armory
         {Classes.Archer, (Texture)GD.Load("res://Assets/Sprites/Archer.png")},
         {Classes.Mage, (Texture)GD.Load("res://Assets/Sprites/Mage.png")}
     };
-    public static Dictionary<Classes, Rect2> ClassesButtonRegion = new Dictionary<Classes, Rect2>
+    public static Dictionary<Classes, Texture> ClassesIcons = new Dictionary<Classes, Texture>
     {
-        {Classes.Warrior, new Rect2(new Vector2(180, 450), new Vector2(15, 15))},
-        {Classes.Archer, new Rect2(new Vector2(162, 450), new Vector2(15, 15))},
-        {Classes.Mage, new Rect2(new Vector2(198, 450), new Vector2(15, 15))}
+        {Classes.Warrior, (Texture)GD.Load("res://Assets/UI/WarriorIcon.png")},
+        {Classes.Archer, (Texture)GD.Load("res://Assets/UI/ArcherIcon.png")},
+        {Classes.Mage, (Texture)GD.Load("res://Assets/UI/MageIcon.png")}
     };
     public static Dictionary<string, Texture> UITextures = new Dictionary<string, Texture>
     {

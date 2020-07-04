@@ -78,12 +78,17 @@
     <Compile Include="Code\UI\QuestBoard.cs" />
     <Compile Include="Code\UI\QuestListItem.cs" />
     <Compile Include="Code\UI\TimerLabel.cs" />
+    <Compile Include="Code\Data\PlayerData.cs" />
+    <Compile Include="Code\Data\Inventory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
       <Version>1.0.0</Version>
       <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

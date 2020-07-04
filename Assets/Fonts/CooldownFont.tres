@@ -3,5 +3,6 @@
 [ext_resource path="res://Assets/Fonts/Munro-2LYe.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 13
+size = 26
+outline_size = 1
 font_data = ExtResource( 1 )

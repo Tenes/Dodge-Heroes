@@ -1,5 +1,0 @@
-D:\Documents\Projects\Dodge-Heroes\.mono\temp\obj\Tools\Dodge Heroes.csprojAssemblyReference.cache
-D:\Documents\Projects\Dodge-Heroes\.mono\temp\bin\Tools\Dodge Heroes.dll
-D:\Documents\Projects\Dodge-Heroes\.mono\temp\bin\Tools\Dodge Heroes.pdb
-D:\Documents\Projects\Dodge-Heroes\.mono\temp\obj\Tools\Dodge Heroes.dll
-D:\Documents\Projects\Dodge-Heroes\.mono\temp\obj\Tools\Dodge Heroes.pdb

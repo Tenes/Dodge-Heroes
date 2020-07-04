@@ -34,7 +34,7 @@ public class ChangeClassButton : TextureButton
     public void ChangePlayerClassAndUpdateButtons(Classes newClass)
     {
         _classHeld = Global.Player.GetClassFlag();
-        _classIcon.RegionRect = Armory.ClassesButtonRegion[Global.Player.GetClassFlag()];
+        _classIcon.Texture = Armory.ClassesIcons[Global.Player.GetClassFlag()];
         Global.Player.SetClass(newClass);
         _currentClass.SetIconForClass(newClass);
         _changeTimer.Start();
