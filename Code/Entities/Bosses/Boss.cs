@@ -5,17 +5,17 @@ using System.Linq;
 
 public class Boss : Sprite
 {
-    private string _title = "Dragon";
-    private float _maxHealthPoint = 180;
-    private float _currentHealthPoint = 180;
-    private Blink _blink;
-    private PackedScene[] _bossAoEs;
-    private Vector2 _centerVector;
+    protected string _title;
+    protected float _maxHealthPoint = 180;
+    protected float _currentHealthPoint = 180;
+    protected Blink _blink;
+    protected PackedScene[] _bossAoEs;
+    protected Vector2 _centerVector;
     public string GetTitle() => _title;
     public float GetCurrentHealth() => _currentHealthPoint;
-    private float GetHealthPercentage() => (_currentHealthPoint/_maxHealthPoint) * 100;
+    protected float GetHealthPercentage() => (_currentHealthPoint/_maxHealthPoint) * 100;
     public void AoEHit() => Global.Player?.TakeDamage();
-    private void RemoveBoss()
+    protected void RemoveBoss()
     {
         Global.CurrentBoss = null;
         QueueFree();
@@ -48,7 +48,7 @@ public class Boss : Sprite
         Global.BossLifebar.SetMaxValue(_maxHealthPoint);
         Global.BossLifebar.SetValue(_currentHealthPoint);
     }
-    private void LaunchRandomAoE(int numberOfAoE)
+    protected void LaunchRandomAoE(int numberOfAoE)
     {
         List<int> indexes = Enumerable.Range(0, _bossAoEs.Length).ToList();
         for(int i = 0; i < numberOfAoE; i++)

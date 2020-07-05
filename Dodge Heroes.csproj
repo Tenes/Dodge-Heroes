@@ -56,7 +56,9 @@
     <Compile Include="Code\AoEs\AoECircles.cs" />
     <Compile Include="Code\AoEs\AoEDoughnuts.cs" />
     <Compile Include="Code\AoEs\AoERectangles.cs" />
-    <Compile Include="Code\Entities\Boss.cs" />
+    <Compile Include="Code\Entities\Bosses\Boss.cs" />
+    <Compile Include="Code\Entities\Bosses\DragonBoss.cs" />
+    <Compile Include="Code\Entities\Bosses\PhoenixBoss.cs" />
     <Compile Include="Code\Global\Armory.cs" />
     <Compile Include="Code\Entities\BaseClass.cs" />
     <Compile Include="Code\Entities\Player.cs" />

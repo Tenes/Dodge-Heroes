@@ -43,24 +43,7 @@ public static class Armory
     };
     public static List<PackedScene> Bosses = new List<PackedScene>
     {
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene,
-        GD.Load("res://Components/Entities/DragonBoss.tscn") as PackedScene
+        GD.Load("res://Components/Entities/Bosses/DragonBoss.tscn") as PackedScene,
+        GD.Load("res://Components/Entities/Bosses/PhoenixBoss.tscn") as PackedScene
     };
 }

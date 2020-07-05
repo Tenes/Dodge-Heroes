@@ -18,10 +18,10 @@ public class QuestListItem : HBoxContainer
         _questTitleLabel.Text = _questTitle;
         _mapLabel = GetNode<Label>("VBoxContainer/Map");
         _mapLabel.Text = _map;
-        Global.CurrentBoss = _targetBoss;
     }
     public void _OnHuntButtonReleased()
     {
+        Global.CurrentBoss = _targetBoss;
         SceneTree tree = GetTree();
         tree.ChangeSceneTo(Armory.CombatScene);
     }
