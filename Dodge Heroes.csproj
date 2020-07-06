@@ -59,6 +59,7 @@
     <Compile Include="Code\Entities\Bosses\Boss.cs" />
     <Compile Include="Code\Entities\Bosses\DragonBoss.cs" />
     <Compile Include="Code\Entities\Bosses\PhoenixBoss.cs" />
+    <Compile Include="Code\Data\Ressource.cs" />
     <Compile Include="Code\Global\Armory.cs" />
     <Compile Include="Code\Entities\BaseClass.cs" />
     <Compile Include="Code\Entities\Player.cs" />

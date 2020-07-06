@@ -1,11 +1,11 @@
-using Godot;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Newtonsoft.Json;
+using File = System.IO.File;
 
 public class PlayerData
 {
+    [JsonProperty(PropertyName = "Pseudo")]
     private string _pseudo;
+    [JsonProperty(PropertyName = "Money")]
     private int _money;
     private Inventory _inventory;
 
@@ -21,5 +21,9 @@ public class PlayerData
     {
         _pseudo = pseudo;
         _money = money;
+    }
+    public void Serialize()
+    {
+        File.WriteAllText(@"./data.json", JsonConvert.SerializeObject(this));
     }
 }

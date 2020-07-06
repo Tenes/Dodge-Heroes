@@ -6,8 +6,9 @@ using System.Linq;
 public class Boss : Sprite
 {
     protected string _title;
-    protected float _maxHealthPoint = 180;
-    protected float _currentHealthPoint = 180;
+    protected float _maxHealthPoint;
+    protected float _currentHealthPoint;
+    protected int _moneyValue;
     protected Blink _blink;
     protected PackedScene[] _bossAoEs;
     protected Vector2 _centerVector;
@@ -19,7 +20,7 @@ public class Boss : Sprite
     {
         Global.CurrentBoss = null;
         QueueFree();
-        //ADD LOOT THING AND WINDOW HERE
+        Global.PlayerData.AddMoney(_moneyValue);
         GetTree().ChangeSceneTo(Armory.CityScene);
     }
 
@@ -33,16 +34,6 @@ public class Boss : Sprite
     }
     public override void _Ready()
     {
-        _bossAoEs = new PackedScene[]
-        {
-            Armory.AoEsByName["AoEH"],
-            Armory.AoEsByName["AoE4Squares"],
-            Armory.AoEsByName["AoEBarcode"],
-            Armory.AoEsByName["AoE3Circles"],
-            Armory.AoEsByName["AoE3CirclesVariant"],
-            Armory.AoEsByName["AoEDoughnutH"],
-            Armory.AoEsByName["AoEDoughnutV"]
-        };
         _blink = new Blink(Material as ShaderMaterial, GetNode<Timer>("BlinkTimer"));
         _centerVector = new Vector2(GetViewportRect().Size.x/2, GetViewportRect().Size.y/2);
         Global.BossLifebar.SetMaxValue(_maxHealthPoint);

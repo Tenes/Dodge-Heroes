@@ -8,6 +8,7 @@ public class City : Node2D
     private Label _characterPseudo;
     public override void _Ready()
     {
+        Global.PlayerData.Serialize();
         _questBoard = (QuestBoard)Armory.QuestBoard.Instance();
         _characterGold = GetNode<Label>("UI/TopContainer/HBoxContainer/Gold");
         _characterPseudo = GetNode<Label>("UI/TopContainer/Pseudo");
