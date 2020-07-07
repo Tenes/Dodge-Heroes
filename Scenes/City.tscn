@@ -18,8 +18,8 @@ texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 432, 0 )
 
 [node name="UI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 431.0
+margin_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,17 +64,17 @@ margin_right = 112.0
 margin_bottom = 40.0
 texture = ExtResource( 6 )
 
-[node name="Armory" type="TouchScreenButton" parent="."]
+[node name="InventoryButton" type="TouchScreenButton" parent="."]
 position = Vector2( 38.5556, 131.501 )
 scale = Vector2( 0.837079, 0.847192 )
 normal = ExtResource( 2 )
 
-[node name="QuestPanel" type="TouchScreenButton" parent="."]
+[node name="QuestBoardButton" type="TouchScreenButton" parent="."]
 position = Vector2( 251.775, 122.333 )
 scale = Vector2( 0.837079, 0.896428 )
 normal = ExtResource( 2 )
 
-[node name="Blacksmith" type="TouchScreenButton" parent="."]
+[node name="BlacksmithButton" type="TouchScreenButton" parent="."]
 position = Vector2( 135, 406 )
 scale = Vector2( 0.837079, 0.854294 )
 normal = ExtResource( 2 )
@@ -93,14 +93,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ArmoryLabel" type="Label" parent="."]
+[node name="InventoryLabel" type="Label" parent="."]
 margin_left = 11.6635
 margin_top = 94.4744
 margin_right = 207.664
 margin_bottom = 126.474
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Not Implemented"
+text = "Inventory"
 align = 1
 valign = 1
 __meta__ = {
@@ -120,4 +120,5 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="released" from="QuestPanel" to="." method="_OnQuestPanelReleased"]
+[connection signal="released" from="InventoryButton" to="." method="_OnInventoryButtonReleased"]
+[connection signal="released" from="QuestBoardButton" to="." method="_OnQuestBoardButtonReleased"]

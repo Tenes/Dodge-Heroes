@@ -6,6 +6,7 @@ public static class Armory
     public static PackedScene CombatScene = GD.Load("res://Scenes/Combat.tscn") as PackedScene;
     public static PackedScene CityScene = GD.Load("res://Scenes/City.tscn") as PackedScene;
     public static PackedScene FloatingText = GD.Load("res://Components/UI/FloatingText.tscn") as PackedScene;
+    public static PackedScene Inventory = GD.Load("res://Components/UI/Inventory.tscn") as PackedScene;
     public static PackedScene QuestBoard = GD.Load("res://Components/UI/QuestBoard.tscn") as PackedScene;
     public static PackedScene QuestListItem = GD.Load("res://Components/UI/QuestListItem.tscn") as PackedScene;
     public static Dictionary<Classes, BaseClass> AvailableClasses = new Dictionary<Classes, BaseClass>
