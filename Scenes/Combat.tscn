@@ -32,35 +32,39 @@ position = Vector2( 64, 103 )
 position = Vector2( 337, 646 )
 
 [node name="FirstChangeButton" parent="UI" instance=ExtResource( 2 )]
-margin_left = 268.0
+margin_left = 265.0
 margin_top = 682.0
-margin_right = 332.0
+margin_right = 329.0
 margin_bottom = 746.0
 
 [node name="Icon" parent="UI/FirstChangeButton" index="0"]
+position = Vector2( 32, 32 )
 region_rect = Rect2( 162, 450, 15, 15 )
 
 [node name="Label" parent="UI/FirstChangeButton/Timer" index="0"]
-margin_left = 268.0
-margin_top = 682.0
-margin_right = 332.0
-margin_bottom = 746.0
+visible = false
+margin_left = 266.0
+margin_top = 683.0
+margin_right = 328.0
+margin_bottom = 745.0
 
 [node name="SecondChangeButton" parent="UI" instance=ExtResource( 2 )]
-margin_left = 342.0
+margin_left = 346.0
 margin_top = 682.0
-margin_right = 406.0
+margin_right = 410.0
 margin_bottom = 746.0
 
 [node name="Icon" parent="UI/SecondChangeButton" index="0"]
+position = Vector2( 32, 32 )
 texture = ExtResource( 9 )
 region_rect = Rect2( 198, 450, 15, 15 )
 
 [node name="Label" parent="UI/SecondChangeButton/Timer" index="0"]
-margin_left = 342.0
-margin_top = 682.0
-margin_right = 406.0
-margin_bottom = 746.0
+visible = false
+margin_left = 347.0
+margin_top = 683.0
+margin_right = 409.0
+margin_bottom = 745.0
 
 [node name="Lifebar" parent="UI" instance=ExtResource( 7 )]
 margin_left = 70.0
