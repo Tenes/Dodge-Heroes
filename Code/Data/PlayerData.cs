@@ -7,6 +7,7 @@ public class PlayerData
     private string _pseudo;
     [JsonProperty(PropertyName = "Money")]
     private int _money;
+    [JsonProperty(PropertyName = "Inventory")]
     private Inventory _inventory;
 
     public void SetPseudo(string pseudo) => _pseudo = pseudo;
@@ -21,6 +22,7 @@ public class PlayerData
     {
         _pseudo = pseudo;
         _money = money;
+        _inventory = new Inventory();
     }
     public void Serialize()
     {

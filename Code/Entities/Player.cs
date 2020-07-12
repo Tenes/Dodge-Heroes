@@ -42,7 +42,10 @@ public class Player : KinematicBody2D
         //SHADER STUFF HERE
         Global.PlayerHealthUI.UpdateUI(_currentHealthPoint);
         if (_currentHealthPoint == 0)
+        {
             RemovePlayer();
+            GetParent().GetNode<CanvasLayer>("UI").AddChild(Armory.DeathDisplay.Instance());
+        }
     }
     public Classes GetClassFlag() => _classFlag;
     public void SetClass(Classes newClass)

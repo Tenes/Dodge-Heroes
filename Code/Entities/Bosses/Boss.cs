@@ -18,10 +18,10 @@ public class Boss : Sprite
     public void AoEHit() => Global.Player?.TakeDamage();
     protected void RemoveBoss()
     {
+        Global.PlayerData.AddMoney(_moneyValue);
+        GetParent().GetNode<CanvasLayer>("UI").AddChild(Armory.LootDisplay.Instance());
         Global.CurrentBoss = null;
         QueueFree();
-        Global.PlayerData.AddMoney(_moneyValue);
-        GetTree().ChangeSceneTo(Armory.CityScene);
     }
 
     public void TakeDamage((float damage, bool isCritical) hit)

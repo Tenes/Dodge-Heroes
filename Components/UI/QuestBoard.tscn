@@ -5,10 +5,10 @@
 [ext_resource path="res://Assets/Fonts/TitleFont.tres" type="DynamicFont" id=3]
 
 [node name="QuestBoard" type="ColorRect"]
-margin_left = 17.2546
-margin_top = 183.567
-margin_right = 417.255
-margin_bottom = 583.567
+margin_left = 16.0
+margin_top = 184.0
+margin_right = 416.0
+margin_bottom = 584.0
 color = Color( 0.435294, 0.341176, 0.341176, 1 )
 script = ExtResource( 1 )
 __meta__ = {

@@ -29,7 +29,10 @@ __meta__ = {
 position = Vector2( 64, 103 )
 
 [node name="CurrentClass" parent="UI" instance=ExtResource( 3 )]
-position = Vector2( 337, 646 )
+margin_left = 305.0
+margin_top = 614.0
+margin_right = 369.0
+margin_bottom = 678.0
 
 [node name="FirstChangeButton" parent="UI" instance=ExtResource( 2 )]
 margin_left = 265.0

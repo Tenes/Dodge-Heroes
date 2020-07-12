@@ -4,11 +4,19 @@
 [ext_resource path="res://Assets/UI/blue.png" type="Texture" id=2]
 [ext_resource path="res://Code/UI/ActualClassSprite.cs" type="Script" id=3]
 
-[node name="Sprite" type="Sprite"]
+[node name="Sprite" type="TextureRect"]
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Icon" type="Sprite" parent="."]
-position = Vector2( 1.49012e-06, -1 )
+[node name="Icon" type="TextureRect" parent="."]
+margin_left = 8.08833
+margin_top = 8.41187
+margin_right = 56.0883
+margin_bottom = 56.4119
 texture = ExtResource( 1 )
-region_rect = Rect2( 180, 450, 15, 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

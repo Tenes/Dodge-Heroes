@@ -56,6 +56,8 @@
     <Compile Include="Code\AoEs\AoECircles.cs" />
     <Compile Include="Code\AoEs\AoEDoughnuts.cs" />
     <Compile Include="Code\AoEs\AoERectangles.cs" />
+    <Compile Include="Code\Data\Inventory.cs" />
+    <Compile Include="Code\Data\Item.cs" />
     <Compile Include="Code\Entities\Bosses\Boss.cs" />
     <Compile Include="Code\Entities\Bosses\DragonBoss.cs" />
     <Compile Include="Code\Entities\Bosses\PhoenixBoss.cs" />
@@ -75,14 +77,17 @@
     <Compile Include="Code\UI\ActualClassSprite.cs" />
     <Compile Include="Code\UI\Analog.cs" />
     <Compile Include="Code\UI\ChangeClassButton.cs" />
+    <Compile Include="Code\UI\DeathDisplay.cs" />
     <Compile Include="Code\UI\FloatingText.cs" />
+    <Compile Include="Code\UI\ItemDisplay.cs" />
     <Compile Include="Code\UI\Lifebar.cs" />
+    <Compile Include="Code\UI\LootDisplay.cs" />
     <Compile Include="Code\UI\PlayerHealth.cs" />
     <Compile Include="Code\UI\QuestBoard.cs" />
     <Compile Include="Code\UI\QuestListItem.cs" />
     <Compile Include="Code\UI\TimerLabel.cs" />
     <Compile Include="Code\Data\PlayerData.cs" />
-    <Compile Include="Code\UI\Inventory.cs" />
+    <Compile Include="Code\UI\InventoryUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

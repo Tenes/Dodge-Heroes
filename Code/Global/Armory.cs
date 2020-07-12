@@ -6,9 +6,12 @@ public static class Armory
     public static PackedScene CombatScene = GD.Load("res://Scenes/Combat.tscn") as PackedScene;
     public static PackedScene CityScene = GD.Load("res://Scenes/City.tscn") as PackedScene;
     public static PackedScene FloatingText = GD.Load("res://Components/UI/FloatingText.tscn") as PackedScene;
-    public static PackedScene Inventory = GD.Load("res://Components/UI/Inventory.tscn") as PackedScene;
+    public static PackedScene InventoryUI = GD.Load("res://Components/UI/InventoryUI.tscn") as PackedScene;
     public static PackedScene QuestBoard = GD.Load("res://Components/UI/QuestBoard.tscn") as PackedScene;
     public static PackedScene QuestListItem = GD.Load("res://Components/UI/QuestListItem.tscn") as PackedScene;
+    public static PackedScene ItemDisplay = GD.Load("res://Components/UI/ItemDisplay.tscn") as PackedScene;
+    public static PackedScene LootDisplay = GD.Load("res://Components/UI/LootDisplay.tscn") as PackedScene;
+    public static PackedScene DeathDisplay = GD.Load("res://Components/UI/DeathDisplay.tscn") as PackedScene;
     public static Dictionary<Classes, BaseClass> AvailableClasses = new Dictionary<Classes, BaseClass>
     {
         {Classes.Warrior, new WarriorClass()},
@@ -46,5 +49,20 @@ public static class Armory
     {
         GD.Load("res://Components/Entities/Bosses/DragonBoss.tscn") as PackedScene,
         GD.Load("res://Components/Entities/Bosses/PhoenixBoss.tscn") as PackedScene
+    };
+    public static Dictionary<int, Item> ItemById = new Dictionary<int, Item>
+    {
+        {1, new Item("Sword", "res://Assets/UI/WarriorIcon.png")},
+        {2, new Item("Bow", "res://Assets/UI/ArcherIcon.png")},
+        {3, new Item("Fireball", "res://Assets/UI/MageIcon.png")}
+    };
+    public static Dictionary<string, List<int>> LootTablePerBoss = new Dictionary<string, List<int>>
+    {
+        {"Dragon", new List<int>{
+            1, 1, 2, 2, 1
+        }},
+        {"Phoenix", new List<int>{
+            3, 3, 2, 2, 3
+        }}
     };
 }
