@@ -57,6 +57,7 @@
     <Compile Include="Code\AoEs\AoEDoughnuts.cs" />
     <Compile Include="Code\AoEs\AoERectangles.cs" />
     <Compile Include="Code\Data\Inventory.cs" />
+    <Compile Include="Code\Data\Equipment.cs" />
     <Compile Include="Code\Data\Item.cs" />
     <Compile Include="Code\Entities\Bosses\Boss.cs" />
     <Compile Include="Code\Entities\Bosses\DragonBoss.cs" />

@@ -32,10 +32,11 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 400.0
 margin_bottom = 32.0
+custom_constants/separation = -32
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_right = 364.0
+margin_right = 400.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
@@ -51,24 +52,30 @@ texture_normal = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 36.0
+margin_right = 400.0
 margin_bottom = 400.0
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/margin_right = 8
+custom_constants/margin_left = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
+margin_left = 8.0
+margin_right = 392.0
 margin_bottom = 364.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+margin_right = 384.0
 margin_bottom = 364.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/vseparation = 5
-custom_constants/hseparation = 5
+custom_constants/vseparation = 4
+custom_constants/hseparation = 4
 columns = 8
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/ExitButton" to="." method="_OnExitButtonReleased"]

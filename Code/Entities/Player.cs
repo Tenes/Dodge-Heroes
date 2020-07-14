@@ -22,6 +22,17 @@ public class Player : KinematicBody2D
     //Movement Related Attributes
     private Vector2 _velocity = new Vector2(0, 0);
     private Vector2 _analogVelocity = new Vector2(0, 0);
+    public Classes GetClassFlag() => _classFlag;
+    public BaseClass GetCurrentClass() => _currentClass;
+    public void SetClass(Classes newClass)
+    {
+        _previousClassFlag = _classFlag;
+        _classFlag = newClass;
+        _currentClass = Armory.AvailableClasses[_classFlag];
+        UpdateTexture();
+        _blink.Start();
+        SetAutoAttackTimerOnClassAttackSpeed();
+    }
     private void RemovePlayer()
     {
         Global.Player = null;
@@ -46,16 +57,6 @@ public class Player : KinematicBody2D
             RemovePlayer();
             GetParent().GetNode<CanvasLayer>("UI").AddChild(Armory.DeathDisplay.Instance());
         }
-    }
-    public Classes GetClassFlag() => _classFlag;
-    public void SetClass(Classes newClass)
-    {
-        _previousClassFlag = _classFlag;
-        _classFlag = newClass;
-        _currentClass = Armory.AvailableClasses[_classFlag];
-        UpdateTexture();
-        _blink.Start();
-        SetAutoAttackTimerOnClassAttackSpeed();
     }
     
     //Functions

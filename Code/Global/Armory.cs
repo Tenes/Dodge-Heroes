@@ -59,10 +59,21 @@ public static class Armory
     public static Dictionary<string, List<int>> LootTablePerBoss = new Dictionary<string, List<int>>
     {
         {"Dragon", new List<int>{
-            1, 1, 2, 2, 1
+            1, 2
         }},
         {"Phoenix", new List<int>{
-            3, 3, 2, 2, 3
+            2, 3
         }}
     };
+    public static List<int> GetRandomLootByBoss(float dropLuck, string bossName)
+    {
+        int numberOfRoll = Mathf.FloorToInt(dropLuck) + 4;
+        List<int> tempList = LootTablePerBoss[bossName];
+        List<int> finalList = new List<int>();
+        for(int index = 0; index < numberOfRoll; index++)
+        {
+            finalList.Add(tempList[Global.Rng.Next(tempList.Count)]);
+        }
+        return finalList;
+    }
 }
