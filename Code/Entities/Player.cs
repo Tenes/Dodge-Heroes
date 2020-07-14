@@ -46,6 +46,7 @@ public class Player : KinematicBody2D
         _autoAttackTimer.Start();
         _autoAttackBar.MaxValue = _autoAttackTimer.WaitTime * 100;
     }
+    public void PauseAutoAttack() => _autoAttackTimer.Paused = true;
     //Properties
     public void TakeDamage()
     {

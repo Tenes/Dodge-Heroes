@@ -20,6 +20,7 @@ public class Boss : Sprite
     {
         Global.PlayerData.AddMoney(_moneyValue);
         GetParent().GetNode<CanvasLayer>("UI").AddChild(Armory.LootDisplay.Instance());
+        Global.Player.PauseAutoAttack();
         Global.CurrentBoss = null;
         QueueFree();
     }
