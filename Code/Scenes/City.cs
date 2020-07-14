@@ -3,6 +3,8 @@ using System;
 
 public class City : Node2D
 {
+    private float _timerForGarbageCollection = 0;
+    private float _timeToHit = 20f;
     private InventoryUI _inventoryUi;
     private QuestBoard _questBoard;
     private Label _characterGold;
@@ -17,6 +19,17 @@ public class City : Node2D
         _characterPseudo = GetNode<Label>("UI/TopContainer/Pseudo");
         _characterGold.Text = Global.PlayerData.GetMoney().ToString();
         _characterPseudo.Text = Global.PlayerData.GetPseudo();
+    }
+
+    public override void _Process(float delta)
+    {
+        _timerForGarbageCollection += delta;
+        if(_timerForGarbageCollection >= _timeToHit)
+        {
+            GC.Collect(0);
+            GC.WaitForPendingFinalizers();
+            _timerForGarbageCollection= 0;
+        }
     }
     public void _OnQuestBoardButtonReleased()
     {
