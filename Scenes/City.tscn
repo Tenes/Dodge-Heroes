@@ -120,5 +120,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="released" from="InventoryButton" to="." method="_OnInventoryButtonReleased"]
 [connection signal="released" from="QuestBoardButton" to="." method="_OnQuestBoardButtonReleased"]
